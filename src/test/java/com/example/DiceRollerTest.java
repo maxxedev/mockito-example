@@ -15,7 +15,7 @@ public class DiceRollerTest {
 
     @Test
     public void testDiceRoll() {
-        try (MockedConstruction<Random> mocked = mockConstruction(Random.class, this::stubRandom)) {
+        try (MockedConstruction<Random> mocked = mockConstruction(Random.class, this::prepareRandom)) {
             DiceRoller dicerRoller = new DiceRoller();
             assertThat(dicerRoller.roll()).isEqualTo(6);
 
@@ -25,7 +25,7 @@ public class DiceRollerTest {
     }
 
     // implements MockInitializer
-    private void stubRandom(Random mockRandom, Context context) {
+    private void prepareRandom(Random mockRandom, Context context) {
         doReturn(5).when(mockRandom).nextInt(6);
     }
 }

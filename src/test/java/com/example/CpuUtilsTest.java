@@ -23,7 +23,8 @@ public class CpuUtilsTest {
             mocked.when(() -> ManagementFactory.getOperatingSystemMXBean())
                     .thenReturn(mockOsMxBean);
 
-            assertThat(CpuUtils.getIdleCpuCount()).isEqualTo(6);
+            assertThat(CpuUtils.getIdleCpuCount())
+                    .isEqualTo(6);
         }
     }
 

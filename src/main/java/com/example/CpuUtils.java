@@ -10,9 +10,6 @@ public class CpuUtils {
         double availableProcessors = operatingSystemMXBean.getAvailableProcessors();
         double averageLoad = operatingSystemMXBean.getSystemLoadAverage();
         int idleProcessors = (int) (availableProcessors - averageLoad);
-        if (idleProcessors <= 0) {
-            return 1;
-        }
         return idleProcessors <= 0 ? 1 : idleProcessors;
     }
 }

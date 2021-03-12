@@ -27,7 +27,8 @@ public class EtcHostsUtilsTest {
             mocked.when(() -> Paths.get("/etc/hosts"))
                     .thenReturn(tempFile);
 
-            assertThat(EtcHostsUtils.findEtcHostsMappings("192.168.10.10")).containsExactly("database-server");
+            assertThat(EtcHostsUtils.findEtcHostsMappings("192.168.10.10"))
+                    .containsExactly("database-server");
         }
     }
 }
